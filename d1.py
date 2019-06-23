@@ -1,4 +1,4 @@
-#Author: Charles Bell commit test
+#Author: Charles Bell
 #Challenge D1 - Basic Python Skills
 #	Create a python script that  reads the titanic data set from Kaggle and performs the following actions
 #	Read the file and write it two files, the first reversing the order of the columns, the second creates a file that contains every other columns
