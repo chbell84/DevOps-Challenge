@@ -1,10 +1,16 @@
-from flask import Flask, flash, request, redirect, url_for
+from flask import Flask, request, redirect, url_for
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = 'files/uploads'
+#UPLOAD_FOLDER = 'app/static/uploads'
+UPLOAD_FOLDER_SF = 'static/files'
+UPLOAD_FOLDER = 'app/static/files'
+#DEFAULT_FILE = 'app/static/default.csv'
 ALLOWED_EXTENSIONS = set(['csv'])
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER_SF'] = UPLOAD_FOLDER_SF
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+#app.config['DEFAULT_FILE'] = DEFAULT_FILE
+#app.config['OUTPUT_FOLDER'] = UPLOAD_FOLDER
 
 from app import routes
