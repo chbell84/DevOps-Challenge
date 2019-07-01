@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
+        
         <p>You can either upload a dataset file below or run the program on a file that has been saved local on this server</p>
-        <h2>Run with default file</h2>
+        <h3>Upload CSV</h3>
+        <form action = "http://localhost:5000/" method = "POST" enctype = "multipart/form-data">
+            <input type = "file" name = "file" />
+            <input type = "submit"/>
+        </form>
+        <h3>Run with default file</h3>
         <ul>
             <li><a href="{{ url_for('return_files') }}" target="_blank">Preview default data set</a></li>
             <li><a href="{{ url_for('load_csv', file='files/default.csv') }}" target="_self">Run with default file</a></li>

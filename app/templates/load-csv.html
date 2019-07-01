@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-        <h2>CSV Loaded</h2>
-        <h2>Download Excel file</h2>
+        <h2>CSV Loaded!</h2>
+
+        <h3>Download Excel file</h3>
         <ul>
-            <li><a href="{{ url_for('static', filename='files/reversed_columns.xlsx') }}" target="_blank">With Columns reversed</a></li>
-            <li><a href="{{ url_for('static', filename='files/alternate_columns.xlsx') }}" target="_self">With every other column</a></li>
+            <li><a href="{{ url_for('return_files', filename='reversed_columns.xlsx') }}" target="_blank">With Columns reversed</a></li>
+            <li><a href="{{ url_for('return_files', filename='alternate_columns.xlsx') }}" target="_self">With every other column</a></li>
         </ul>
 {% endblock %}
