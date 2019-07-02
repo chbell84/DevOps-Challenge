@@ -8,8 +8,6 @@ from flask import Flask, request, render_template, send_file
 from app import app
 from werkzeug.utils import secure_filename
 
-#DEFAULT_FILE = os.path.join(app.config['UPLOAD_FOLDER_SF'],'default.csv')
-
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/index')
 def index():
@@ -42,8 +40,6 @@ def finance():
         json_data = stock_history(symbol)
         if 'Message' in json_data:
             return render_template('api_error.html', message=json_data['Message'])
-#        datareader = csv.reader(csvfile, delimiter=',', quotechar='"')
-#        dataset = [row for row in datareader]
         dataset = parse_stock(json_data['history'])
         excel_save(dataset, os.path.join(app.config['UPLOAD_FOLDER'],filename), symbol)
         return render_template('api_success.html', title=filename, filename=filename)
@@ -55,12 +51,6 @@ def stock_history(symbol):
     url = ("https://api.worldtradingdata.com/api/v1/history?symbol=%s&sort=newest&output=%s&api_token=%s" % (symbol,output,api_key))
     page = urllib.request.urlopen(url)
     rawdata = page.read()
-#    csvfile = str(rawdata).split('\\n')
-#    #check for json error message instead of expected csv
-#    if len(csvfile)==1:
-#        m = json.loads(rawdata)
-#        return m['Message']
-#    return csvfile
     return(json.loads(rawdata))
 
 def parse_stock(history):
