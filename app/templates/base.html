@@ -3,13 +3,15 @@
 		<title>{{ title }}  - DevOps Challenge</title>
 	</head>
 	<body>
-		<h1>Challenge D1 - Basic Python Skills</h1>
+		<h1><a href="/">Challenge D1 - Basic Python Skills</a></h1>
         <p>This program reads in a file from the titanic dataset then creates two new files:
         </p>
-        <ul>
+        <ol>
             <li>the first reversing the order of the columns</li>
             <li>the second creates a file that contains every other column</li>
-        </ul>
+            <li>Create a python script that pulls data from the ‘Yahoo Finance API’ calling market get movers API and creates a xlsx file that you can open in excel<br />
+                <em>Note: the Yahoo Finance API seems to be discontinued so I am pulling historical stock data using the API from a site called <a href="https://www.worldtradingdata.com/" target="_blank">World Trading Data</a></em></li>
+        </ol>
         {% block content %}{% endblock %}
 	</body>
 </html>

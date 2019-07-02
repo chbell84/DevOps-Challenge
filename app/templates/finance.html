@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+        <h3>Enter a stock symbol (value defaults to AAPL)</h3>
+        <form method=POST>
+            <input name="symbol" type="text" value="AAPL">
+            <input type="submit">
+        </form>
+{% endblock %}
