@@ -12,3 +12,6 @@ The project files for the Java HelloWorld app are in the directory ChallengeD3. 
 
 The video is on my dropbox. You can reach it [here](https://www.dropbox.com/s/w8o8urq6v1scflq/d3.mov?dl=0).
 
+### D5
+
+I have  all the queries for this challenge written out in the file 'Challenge d5.txt'
