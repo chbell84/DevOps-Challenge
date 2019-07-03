@@ -1,0 +1,45 @@
+Challenge D5 - SQL Basic Skills
+Create an EMPLOYEE table and a DEPARTMENT table and populate them with data. Include a SALARY column in the EMPLOYEE table and a CITY column in the DEPARTMENT table. Write a query that lists the average employee salary for each city.
+Write a query to print the current date and time on the server.
+
+
+CREATE TABLE Employee (
+    EmployeeID int NOT NULL AUTO_INCREMENT,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Department varchar(255) NOT NULL,
+    Salary int NOT NULL,
+    PRIMARY KEY (EmployeeID)
+);
+CREATE TABLE Department (
+    DepartmentID int NOT NULL AUTO_INCREMENT,
+    Name varchar(255) NOT NULL,
+    City varchar(255),
+    PRIMARY KEY (DepartmetID)
+);
+INSERT INTO Department (Name, City)
+VALUES ('HR', 'Cleveland');
+
+INSERT INTO Department (Name, City)
+VALUES ('Support', 'Jersey City');
+
+INSERT INTO Department (Name, City)
+VALUES ('Development', 'Boston');
+
+INSERT INTO Employee (LastName, FirstName, Department, Salary)
+VALUES ('Doe', 'John', 'HR', 50000);
+
+INSERT INTO Employee (LastName, FirstName, Department, Salary)
+VALUES ('Jones', 'John', 'Development', 60000);
+
+INSERT INTO Employee (LastName, FirstName, Department, Salary)
+VALUES ('Doe', 'Jane', 'Support', 70000);
+
+SELECT Department.City, AVG(Employee.Salary)
+FROM Employee
+INNER JOIN Department ON Department.Name = Employee. Department
+GROUP BY City;
+
+Write a query to print the current date and time on the server.
+
+SELECT SYSDATE();
