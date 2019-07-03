@@ -10,36 +10,43 @@ reverse_columns() {
     do
         IFS=$','
         outLine=$''
-        for i in $line; do
+        for column in $line; do
             IFS=$'\n'
-            i="${i/|/,}"
+            column="${column/|/,}"
             if [[ -z "$outLine" ]]; then
-                outLine=$i
+                outLine=$column
             else
-                outLine=$i','$outLine
+                outLine=$column','$outLine
             fi
         done
         echo $outLine
     done
 }
 
-#echo $l
-reverse_columns $l > reversed_columns.csv
-#for line in $l;
-#do
-#    IFS=$','
-#    outLine=$''
-#    for i in $line; do
-#        IFS=$'\n'
-#        i="${i/|/,}"
-#        if [[ -z "$outLine" ]]; then
-#            outLine=$i
-#        else
-#            outLine=$i','$outLine
-#        fi
-#    done
-#    echo $outLine
-#done>reversed_columns.csv
+alternate_columns() {
+    IFS=$'\n\r'
+    for line in $@;
+    do
+        IFS=$','
+        outLine=$''
+        i=0
+        for column in $line; do
+            IFS=$'\n'
+            column="${column/|/,}"
+            no_skip=$((i%2))
+            i=$((i+1))
+            if [[ $no_skip -eq 0 ]]; then
+                if [[ -z "$outLine" ]]; then
+                    outLine=$column
+                else
+                    outLine=$outLine','$column
+                fi
+            fi
+        done
+        echo $outLine
+    done
+}
 
-#done
+reverse_columns $l > reversed_columns.csv
+alternate_columns $l > alternating_columns.csv
 IFS=$OLDIFS
