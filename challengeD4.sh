@@ -13,7 +13,7 @@
 #       reversed_columns.csv
 #       alternating_columns.csv
 #       stock_data.csv
-#  Suggestion: run in a wide window
+#  
 ##########################################################
 
 # takes an array of data and prints out the columns in reverse order
